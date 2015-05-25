@@ -210,6 +210,14 @@ struct demod_state {
             int blkcount;
             int lastch;
         } dtmf;
+
+        struct l1_state_googletone {
+            unsigned int ph[10];
+            float energy[5];
+            float tenergy[5][20];
+            int blkcount;
+            int lastch;
+        } googletone;
         
         struct l1_state_selcall {
             unsigned int ph[16];
@@ -290,6 +298,7 @@ extern const struct demod_param demod_hapn4800;
 extern const struct demod_param demod_fsk9600;
 
 extern const struct demod_param demod_dtmf;
+extern const struct demod_param demod_googletone;
 
 extern const struct demod_param demod_zvei1;
 extern const struct demod_param demod_zvei2;
@@ -316,7 +325,7 @@ extern const struct demod_param demod_scope;
 
 #define ALL_DEMOD &demod_poc5, &demod_poc12, &demod_poc24, &demod_eas, &demod_ufsk1200, &demod_clipfsk, &demod_fmsfsk, \
     &demod_afsk1200, &demod_afsk2400, &demod_afsk2400_2, &demod_afsk2400_3, &demod_hapn4800, \
-    &demod_fsk9600, &demod_dtmf, &demod_zvei1, &demod_zvei2, &demod_zvei3, &demod_dzvei, \
+    &demod_fsk9600, &demod_dtmf, &demod_googletone, &demod_zvei1, &demod_zvei2, &demod_zvei3, &demod_dzvei, \
     &demod_pzvei, &demod_eea, &demod_eia, &demod_ccir, &demod_morse, &demod_dumpcsv SCOPE_DEMOD
 
 
